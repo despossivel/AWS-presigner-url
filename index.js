@@ -1,5 +1,3 @@
-import AWS from "aws-sdk";
- 
 class Singed {
     #AWS; 
     #accessKeyId;
@@ -15,7 +13,7 @@ class Singed {
         this.#setAccess(AWS)
     }
 
-    #setAccess(){
+    #setAccess(AWS){
         this.#AWS = new AWS.S3({
             accessKeyId: this.#accessKeyId,
             secretAccessKey: this.#secretAccessKey,
@@ -38,10 +36,5 @@ class Singed {
     }
 
 }
-
-// const singed = new Singed(AWS, 'BUCKET-name')
-// const url = await singed.getSingedUrl('file-name.pdf');
-// console.log(url)
-
 
 export default Singed;
